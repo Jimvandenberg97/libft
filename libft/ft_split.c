@@ -6,13 +6,13 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/05 19:00:02 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/06 18:48:29 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/07 16:34:22 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		wleng(const char *s, char c)
+static int			wleng(const char *s, char c)
 {
 	int i;
 
@@ -22,7 +22,7 @@ static int		wleng(const char *s, char c)
 	return (i);
 }
 
-static int		wcount(const char *s, char c)
+static int			wcount(const char *s, char c)
 {
 	int i;
 	int ct;
@@ -42,21 +42,28 @@ static int		wcount(const char *s, char c)
 	return (ct);
 }
 
-static char		**copy(char **new, const char *s, char c)
+static const char	*incr(const char *s, char c)
 {
-	int		j;
-	int		i;
+	while (*s == c && *s != '\0')
+		s++;
+	return (s);
+}
 
-	j = 0;
+static char			**copy(char **new, const char *s, char c, int j)
+{
+	int i;
+
 	while (*s != '\0')
 	{
-		while (*s == c && *s != '\0')
-			s++;
+		s = incr(s, c);
 		if (*s == '\0')
 			continue ;
 		new[j] = malloc(sizeof(char*) * (wleng(s, c) + 1));
 		if (new[j] == NULL)
+		{
 			return (NULL);
+			free(new);
+		}
 		i = 0;
 		while (*s != c && *s != '\0')
 		{
@@ -71,15 +78,25 @@ static char		**copy(char **new, const char *s, char c)
 	return (new);
 }
 
-char			**ft_split(const char *s, char c)
+char				**ft_split(const char *s, char c)
 {
-	char **new;
+	int		j;
+	char	**new;
 
+	j = 0;
 	if (s == NULL)
 		return (NULL);
 	new = malloc(sizeof(char *) * (wcount(s, c) + 1));
 	if (new == NULL)
+	{
 		return (NULL);
-	new = copy(new, s, c);
+		free(new);
+	}
+	new = copy(new, s, c, j);
+	if (new == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
 	return (new);
 }

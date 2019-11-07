@@ -6,7 +6,7 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:43:50 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/06 15:12:34 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/07 11:10:06 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_atoi(const char *str)
 		str++;
 	while (*str >= 48 && *str <= 57)
 	{
-		num = num * 10 + *str - 48;
+		num = num * 10 + *str - '0';
 		str++;
 	}
 	return (num * prefix);

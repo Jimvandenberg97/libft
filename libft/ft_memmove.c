@@ -6,30 +6,11 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 14:45:07 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/05 19:14:00 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/07 15:54:40 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static void		*ft_memcpy_static(void *dst, const void *src, size_t n)
-{
-	unsigned char	*pdest;
-	const char		*psource;
-
-	pdest = dst;
-	psource = src;
-	if (!pdest && !psource)
-		return (NULL);
-	while (n > 0)
-	{
-		*pdest = *psource;
-		n--;
-		pdest++;
-		psource++;
-	}
-	return (dst);
-}
 
 void			*ft_memmove(void *dst, const void *src, size_t len)
 {
@@ -38,10 +19,10 @@ void			*ft_memmove(void *dst, const void *src, size_t len)
 
 	pdest = (char *)dst;
 	psource = (const char *)src;
-	if (!dst && !src)
+	if (dst == NULL && src == NULL)
 		return (NULL);
 	if (pdest < psource)
-		ft_memcpy_static(pdest, psource, len);
+		ft_memcpy(pdest, psource, len);
 	else
 	{
 		pdest = dst + (len - 1);

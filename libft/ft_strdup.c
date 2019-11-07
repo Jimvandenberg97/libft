@@ -6,7 +6,7 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 18:38:04 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/06 15:52:36 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/07 15:59:09 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ char			*ft_strdup(const char *s1)
 	mem = (char *)malloc(sizeof(char) * len);
 	if (!mem)
 		return (NULL);
-	return (ft_memcpy(mem, s1, len));
+	ft_strlcpy(mem, s1, len);
+	return (mem);
 }

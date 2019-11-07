@@ -6,7 +6,7 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 16:23:43 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/05 19:51:33 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/07 15:25:45 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ char			*ft_strrchr(const char *s, int c)
 			ptr = (char *)s;
 		s++;
 	}
+	if (c == '\0')
+		return ((char *)s + 1);
 	return (ptr);
 }
