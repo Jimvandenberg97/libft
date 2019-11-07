@@ -6,7 +6,7 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/02 16:09:37 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/07 15:21:30 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/07 19:05:50 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*one;
 	size_t	count;
 
-	if (s == NULL)
+	if (s == NULL || !f)
 		return (NULL);
 	i = 0;
 	count = ft_strlen(s);

@@ -6,13 +6,13 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 12:15:14 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/07 16:06:08 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/07 18:08:01 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t			ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t				ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t pos;
 	size_t leng;
@@ -21,6 +21,8 @@ size_t			ft_strlcat(char *dst, const char *src, size_t dstsize)
 	pos = ft_strlen(dst);
 	leng = ft_strlen(src);
 	i = 0;
+	if (dstsize == 0)
+		return (leng);
 	if (pos >= dstsize)
 		leng = leng + dstsize;
 	else

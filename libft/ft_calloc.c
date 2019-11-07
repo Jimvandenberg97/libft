@@ -6,7 +6,7 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 17:33:57 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/07 15:49:53 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/07 17:54:49 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void			*ft_calloc(size_t count, size_t size)
 {
 	char	*ptr;
 
+	if (count == 0 || size == 0)
+	{
+		count = 1;
+		size = 1;
+	}
 	ptr = malloc(count * size);
 	if (ptr == NULL)
 		return (NULL);
