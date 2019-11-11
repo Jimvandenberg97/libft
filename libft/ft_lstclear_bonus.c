@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstlast.c                                       :+:    :+:            */
+/*   ft_lstclear.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/04 16:46:15 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/07 11:30:15 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/11/04 19:26:08 by jivan-de      #+#    #+#                 */
+/*   Updated: 2019/11/11 14:29:40 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	struct s_list *temp;
+	struct s_list *new;
+
 	if (lst == NULL)
-		return (lst);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+		return ;
+	temp = *lst;
+	while (temp != NULL)
+	{
+		new = temp;
+		temp = temp->next;
+		del(new->content);
+		free(new);
+	}
+	*lst = NULL;
 }

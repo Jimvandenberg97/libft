@@ -6,7 +6,7 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/05 19:00:02 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/07 18:41:30 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/11 17:34:35 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,14 @@ static int			wcount(const char *s, char c)
 	return (ct);
 }
 
-static const char	*incr(const char *s, char c)
+static	void		*freenew(char *new, int j)
 {
-	while (*s == c && *s != '\0')
-		s++;
-	return (s);
+	while (j >= 0)
+	{
+		j--;
+		free(&new[j]);
+	}
+	return (NULL);
 }
 
 static char			**copy(char **new, const char *s, char c, int j)
@@ -55,15 +58,13 @@ static char			**copy(char **new, const char *s, char c, int j)
 
 	while (*s != '\0')
 	{
-		s = incr(s, c);
+		while (*s == c && *s != '\0')
+			s++;
 		if (*s == '\0')
 			continue ;
 		new[j] = malloc(sizeof(char*) * (wleng(s, c) + 1));
 		if (new[j] == NULL)
-		{
-			return (NULL);
-			free(new);
-		}
+			return (freenew(new[j], j));
 		i = 0;
 		while (*s != c && *s != '\0')
 		{
@@ -83,7 +84,6 @@ char				**ft_split(const char *s, char c)
 	int		j;
 	char	**new;
 
-	j = 0;
 	if (s == NULL)
 		return (NULL);
 	new = malloc(sizeof(char *) * (wcount(s, c) + 1));
@@ -92,6 +92,7 @@ char				**ft_split(const char *s, char c)
 		return (NULL);
 		free(new);
 	}
+	j = 0;
 	new = copy(new, s, c, j);
 	if (new == NULL)
 	{

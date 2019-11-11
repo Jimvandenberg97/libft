@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstdelone.c                                     :+:    :+:            */
+/*   ft_lstlast.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/04 19:16:30 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/07 17:22:02 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/11/04 16:46:15 by jivan-de      #+#    #+#                 */
+/*   Updated: 2019/11/09 13:18:34 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+t_list	*ft_lstlast(t_list *lst)
 {
 	if (lst == NULL)
-		return ;
-	del(lst->content);
-	free(lst);
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

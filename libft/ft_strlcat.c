@@ -6,7 +6,7 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 12:15:14 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/07 18:08:01 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/11 12:40:25 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t pos;
-	size_t leng;
-	size_t i;
+	size_t	dstlen;
+	size_t	srclen;
+	size_t	i;
 
-	pos = ft_strlen(dst);
-	leng = ft_strlen(src);
+	dstlen = ft_strlen(dst);
+	srclen = ft_strlen(src);
 	i = 0;
 	if (dstsize == 0)
-		return (leng);
-	if (pos >= dstsize)
-		leng = leng + dstsize;
+		return (srclen);
+	if (dstsize < dstlen)
+		srclen = srclen + dstsize;
 	else
-		leng = leng + pos;
-	while (src[i] != '\0' && pos + 1 < dstsize)
+		srclen = srclen + dstlen;
+	while (src[i] != '\0' && dstlen < dstsize - 1 && dst != src)
 	{
-		dst[pos] = src[i];
-		pos++;
+		dst[dstlen] = src[i];
 		i++;
+		dstlen++;
 	}
-	dst[pos] = '\0';
-	return (leng);
+	dst[dstlen] = '\0';
+	return (srclen);
 }

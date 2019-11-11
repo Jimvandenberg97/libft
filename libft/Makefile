@@ -6,7 +6,7 @@
 #    By: jivan-de <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/30 19:31:23 by jivan-de      #+#    #+#                  #
-#    Updated: 2019/11/06 18:53:23 by jivan-de      ########   odam.nl          #
+#    Updated: 2019/11/11 13:07:37 by jivan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ SRCS = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_substr.c ft_strmapi.c \
 		ft_strjoin.c ft_strtrim.c ft_itoa.c ft_split.c
 
-SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-				ft_lstadd_back.c ft_lstiter.c ft_lstdelone.c ft_lstclear.c \
-				ft_lstmap.c
+SRCS_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+				ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstiter_bonus.c \
+				ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstmap_bonus.c
 
 INCLUDES = ./
 
@@ -36,14 +36,14 @@ HDR = libft.h
 
 all: $(NAME)
 
-$(NAME): compile $(SRCS) libft.h
+%.o:  %.c
+	gcc $(FLAGS) -c $<
+
+$(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-compile:
-	gcc $(FLAGS) -I$(INCLUDES) -c $(SRCS)
-
-bonus: all $(OBJ_BONUS) libft.h
+bonus: $(OBJ) $(OBJ_BONUS)
 	ar rc $(NAME) $(OBJ_BONUS)
 	ranlib $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 19:42:19 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/06 19:23:01 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/11 17:34:45 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int					ft_isalnum(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_isascii(int c);
-int					isprint(int c);
+int					ft_isprint(int c);
 int					ft_atoi(const char *str);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
@@ -60,7 +60,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_itoa(int n);
 t_list				*ft_lstnew(void *content);
-void				ft_lstdd_front(t_list **alst, t_list *new);
+void				ft_lstadd_front(t_list **alst, t_list *new);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_back(t_list **alst, t_list *new);

@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_back.c                                   :+:    :+:            */
+/*   ft_lstdelone.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/04 18:00:48 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/07 11:28:38 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/11/04 19:16:30 by jivan-de      #+#    #+#                 */
+/*   Updated: 2019/11/11 15:18:20 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	struct s_list *temp;
-
-	temp = *alst;
-	if (*alst == NULL)
-		*alst = new;
-	else
-	{
-		while (temp->next != NULL)
-			temp = temp->next;
-		temp->next = new;
-	}
+	if (lst == NULL)
+		return ;
+	del(lst->content);
+	free(lst);
 }

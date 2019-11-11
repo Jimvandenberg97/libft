@@ -1,38 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstmap.c                                        :+:    :+:            */
+/*   ft_lstadd_front.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/04 19:43:57 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/07 11:40:09 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/11/04 16:04:34 by jivan-de      #+#    #+#                 */
+/*   Updated: 2019/11/11 12:31:38 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	t_list *temp;
-	t_list *new;
-
-	if (lst == NULL)
-		return (NULL);
-	new = ft_lstnew(f(temp->content));
-	if (new == NULL)
-		return (NULL);
-	temp = new;
-	while (lst != NULL)
-	{
-		new->next = ft_lstnew(f(lst->content));
-		if (new->next == NULL)
-		{
-			ft_lstclear(&temp, del);
-			return (NULL);
-		}
-		lst = lst->next;
-		new = new->next;
-	}
-	return (temp);
+	new->next = *alst;
+	*alst = new;
 }
