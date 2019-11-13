@@ -6,7 +6,7 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/05 19:00:02 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/11 17:34:35 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/13 11:49:47 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ char				**ft_split(const char *s, char c)
 	new = malloc(sizeof(char *) * (wcount(s, c) + 1));
 	if (new == NULL)
 	{
-		return (NULL);
 		free(new);
+		return (NULL);
 	}
 	j = 0;
 	new = copy(new, s, c, j);
