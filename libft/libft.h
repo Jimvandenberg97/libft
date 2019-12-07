@@ -6,7 +6,7 @@
 /*   By: jivan-de <jivan-de@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 20:33:52 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/12/07 20:50:10 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/12/07 21:42:52 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct		s_list
 
 /*
  ** Converter Functions
- */
+*/
 
 char				*ft_itoa(int n);
 char				*ft_lotoa(long n);
@@ -38,7 +38,7 @@ size_t				ft_getnumlen(long long num, int base);
 
 /*
  ** ASCII Functions
- */
+*/
 
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
@@ -50,7 +50,7 @@ int					ft_toupper(int c);
 
 /*
  ** Memory Functions
- */
+*/
 
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_calloc(size_t count, size_t size);
@@ -63,7 +63,7 @@ void				ft_bzero(void *s, size_t n);
 
 /*
  ** String Functions
- */
+*/
 
 char				**ft_split(char const *s, char c);
 char				*ft_strchr(const char *s, int c);
@@ -71,7 +71,7 @@ char				*ft_strdup(const char *s1);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char				*ft_strnstr(const char *haystack, const char *needle, \
-		size_t len);
+						size_t len);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strtrim(const char *s1, const char *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
@@ -83,10 +83,10 @@ size_t				ft_strlen(const char *s);
 
 /*
  ** Write Functions
- */
+*/
 
 int					ft_putnbr_base(unsigned long long num, size_t base, \
-		int sign, int uc);
+						int sign, int uc);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
@@ -94,17 +94,22 @@ void				ft_putstr_fd(char *s, int fd);
 
 /*
  ** List Functions
- */
+*/
 
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
-		void (*del)(void *));
+						void (*del)(void *));
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstadd_front(t_list **alst, t_list *new);
 void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
+
+/*
+ ** Get Next Line
+*/
+int					ft_get_next_line(int fd, char **line);
 
 #endif

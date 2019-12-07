@@ -6,7 +6,7 @@
 #    By: jivan-de <jivan-de@student.codam.n>          +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/12/07 20:31:59 by jivan-de      #+#    #+#                  #
-#    Updated: 2019/12/07 21:08:30 by jivan-de      ########   odam.nl          #
+#    Updated: 2019/12/07 21:34:01 by jivan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ FLAGS = -Wall -Werror -Wextra
 SOURCES = ft_atoi.c \
 		  ft_bzero.c \
 		  ft_calloc.c \
+		  ft_get_next_line.c \
 		  ft_getnumlen.c \
 		  ft_isalnum.c \
 		  ft_isalpha.c \

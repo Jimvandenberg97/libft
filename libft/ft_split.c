@@ -6,7 +6,7 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/05 19:00:02 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/15 13:52:36 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/12/07 21:41:49 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static char			**copy(char **new, const char *s, char c, int j)
 			continue ;
 		new[j] = malloc(sizeof(char*) * (wleng(s, c) + 1));
 		if (new[j] == NULL)
-	return (freenew(new[j], j));
+			return (freenew(new[j], j));
 		i = 0;
 		while (*s != c && *s != '\0')
 		{
