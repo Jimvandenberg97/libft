@@ -6,7 +6,7 @@
 /*   By: jivan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/05 19:00:02 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/13 11:49:47 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/11/15 13:52:36 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int			wcount(const char *s, char c)
 
 static	void		*freenew(char *new, int j)
 {
-	while (j >= 0)
+	while (j > 0)
 	{
 		j--;
 		free(&new[j]);
@@ -64,7 +64,7 @@ static char			**copy(char **new, const char *s, char c, int j)
 			continue ;
 		new[j] = malloc(sizeof(char*) * (wleng(s, c) + 1));
 		if (new[j] == NULL)
-			return (freenew(new[j], j));
+	return (freenew(new[j], j));
 		i = 0;
 		while (*s != c && *s != '\0')
 		{
@@ -88,10 +88,7 @@ char				**ft_split(const char *s, char c)
 		return (NULL);
 	new = malloc(sizeof(char *) * (wcount(s, c) + 1));
 	if (new == NULL)
-	{
-		free(new);
 		return (NULL);
-	}
 	j = 0;
 	new = copy(new, s, c, j);
 	if (new == NULL)

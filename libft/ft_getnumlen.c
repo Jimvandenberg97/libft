@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_bzero.c                                         :+:    :+:            */
+/*   ft_getnumlen.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/30 12:10:34 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/19 16:41:07 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/12/07 20:37:07 by jivan-de      #+#    #+#                 */
+/*   Updated: 2019/12/07 20:38:56 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+size_t	ft_getnumlen(long long num, int base)
 {
-	unsigned char *p;
+	size_t len;
 
-	p = s;
-	while (n > 0)
+	len = 0;
+	if (num == 0)
+		return (1);
+	if (num < 0)
 	{
-		*p = '\0';
-		p++;
-		n--;
+		num *= -1;
+		len++;
 	}
+	while (num > 0)
+	{
+		num /= base;
+		len++;
+	}
+	return (len);
 }

@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_itoa.c                                          :+:    :+:            */
+/*   ft_uitohex.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/05 12:24:55 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/12/07 20:40:48 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/12/07 20:59:23 by jivan-de      #+#    #+#                 */
+/*   Updated: 2019/12/07 21:09:51 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_itoa(int n)
+const static char	*g_hexset = "0123456789ABCDEF";
+
+char	*ft_uitohex(unsigned int n)
 {
 	char	*str;
-	size_t	leng;
+	size_t	i;
 
-	if (n == INT_MIN)
-		return (ft_strdup("-2147483648"));
-	leng = ft_getnumlen(n, 10);
-	str = (char *)malloc(leng + 1);
+	i = ft_getnumlen(n, 16);
+	str = (char *)malloc(i + 1);
 	if (str == NULL)
 		return (NULL);
-	str[leng] = '\0';
-	leng--;
+	str[i] = '\0';
+	i--;
 	if (n == 0)
 		str[0] = '0';
-	else if (n < 0)
-	{
-		str[0] = '-';
-		n *= -1;
-	}
 	while (n > 0)
 	{
-		str[leng] = '0' + (n % 10);
-		n /= 10;
-		leng--;
+		str[i] = g_hexset[(n % 16)];
+		n /= 16;
+		i--;
 	}
 	return (str);
 }
