@@ -6,7 +6,7 @@
 /*   By: jivan-de <jivan-de@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/12 12:29:44 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/12/07 21:41:28 by jivan-de      ########   odam.nl         */
+/*   Updated: 2019/12/08 02:11:15 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "libft.h"
 
-char		*ft_strchr(const char *s, int c)
+static char		*ft_strchr(const char *s, int c)
 {
 	if (!s)
 		return (NULL);
@@ -32,7 +32,7 @@ char		*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char		*ft_strdup(const char *s1)
+static char		*ft_strdup(const char *s1)
 {
 	size_t	len;
 	void	*mem;
@@ -47,7 +47,7 @@ char		*ft_strdup(const char *s1)
 	return (mem);
 }
 
-char		*ft_strjoin(char const *s1, char const *s2)
+static char		*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
 	size_t	len_1;
