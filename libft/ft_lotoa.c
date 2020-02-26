@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lotia.c                                         :+:    :+:            */
+/*   ft_lotoa.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <jivan-de@student.codam.n>          +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/12/07 20:41:24 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/12/07 21:06:31 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/10/31 17:42:30 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/12/07 17:34:28 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
+#include <limits.h>
 
-char	*ft_lotoa(long n)
+char				*ft_lotoa(long n)
 {
-	char	*str;
-	size_t	i;
+	char		*str;
+	size_t		i;
 
 	if (n == LONG_MIN)
 		return (ft_strdup("-9223372036854775808"));
 	i = ft_getnumlen(n, 10);
-	str = (char *)malloc(i + 1);
+	str = (char*)malloc(i + 1);
 	if (str == NULL)
 		return (NULL);
 	str[i] = '\0';

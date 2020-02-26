@@ -3,27 +3,29 @@
 /*                                                        ::::::::            */
 /*   ft_strrchr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/29 16:23:43 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/12 11:02:41 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/10/29 14:36:30 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/11/11 11:49:53 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_strrchr(const char *s, int c)
+char		*ft_strrchr(const char *s, int c)
 {
-	char *ptr;
+	char	*str;
+	char	*last;
 
-	ptr = NULL;
-	if (c == '\0')
-		return (ft_strchr(s, '\0'));
-	while (*s)
+	str = (char*)s;
+	last = NULL;
+	while (*str != '\0')
 	{
-		if (*s == c)
-			ptr = (char *)s;
-		s++;
+		if (*str == c)
+			last = str;
+		str++;
 	}
-	return (ptr);
+	if (c == '\0')
+		return (str);
+	return (last);
 }

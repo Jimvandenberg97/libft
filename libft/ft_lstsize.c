@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_lstsize.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/04 16:36:43 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/09 13:17:31 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/11/01 15:11:11 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/12/03 14:19:23 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int		ft_lstsize(t_list *lst)
 {
-	int i;
+	int		i;
 
 	i = 0;
+	if (lst == NULL)
+		return (0);
 	while (lst != NULL)
 	{
 		lst = lst->next;

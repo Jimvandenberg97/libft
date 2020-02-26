@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_tolower.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 17:31:07 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/07 14:40:34 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/10/29 13:17:41 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/11/02 14:32:06 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	else
-		return (c);
+		return (c + ('a' - 'A'));
+	return (c);
 }

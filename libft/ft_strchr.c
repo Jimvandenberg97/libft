@@ -3,21 +3,26 @@
 /*                                                        ::::::::            */
 /*   ft_strchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/29 14:18:18 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/20 19:58:03 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/10/29 14:36:30 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/10/29 15:42:02 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char		*ft_strchr(const char *s, int c)
 {
-	while (*s != (unsigned char)c && *s != '\0')
-		s++;
-	if (*s == (unsigned char)c)
-		return ((char*)s);
-	else
-		return (NULL);
+	char	*str;
+
+	str = (char*)s;
+	while (*str != '\0')
+		if (*str == c)
+			return (str);
+		else
+			str++;
+	if (c == '\0')
+		return (str);
+	return (NULL);
 }

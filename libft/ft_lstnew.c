@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstnew_bonus.c                                  :+:    :+:            */
+/*   ft_lstnew.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/04 14:52:57 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/11 17:05:18 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/11/01 13:13:22 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/12/03 14:38:07 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-t_list	*ft_lstnew(void *content)
+t_list		*ft_lstnew(void *content)
 {
-	struct s_list *new;
+	t_list		*list;
 
-	new = NULL;
-	new = (struct s_list *)malloc(sizeof(struct s_list));
-	if (!new)
+	list = (t_list*)malloc(sizeof(*list));
+	if (list == NULL)
 		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	list->next = NULL;
+	list->content = content;
+	return (list);
 }

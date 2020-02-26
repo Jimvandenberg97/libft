@@ -3,18 +3,19 @@
 /*                                                        ::::::::            */
 /*   ft_strtrim.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/05 10:11:16 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/15 13:50:31 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/10/31 15:54:43 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/12/03 14:37:00 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-static int				to_trim(char c, const char *set)
+static int				inset(char c, const char *set)
 {
-	size_t i;
+	size_t		i;
 
 	i = 0;
 	while (set[i] != '\0')
@@ -26,53 +27,53 @@ static int				to_trim(char c, const char *set)
 	return (0);
 }
 
-static const char		*get_first_pos(const char *str, const char *set)
+static const char		*getstart(const char *s, const char *set)
 {
-	size_t i;
+	size_t		i;
 
 	i = 0;
-	while (to_trim(str[i], set) && str[i] != '\0')
+	while (inset(s[i], set) && s[i] != '\0')
 		i++;
-	return (&str[i]);
+	return (&s[i]);
 }
 
-static const char		*get_last_pos(const char *str, const char *set)
+static const char		*getend(const char *s, const char *set)
 {
-	size_t i;
+	size_t		i;
 
-	i = ft_strlen(str);
+	i = ft_strlen(s);
 	if (i == 0)
-		return (str);
+		return (s);
 	i--;
-	while (to_trim(str[i], set) && i > 0)
+	while (inset(s[i], set) && i > 0)
 		i--;
-	return (&str[i]);
+	return (&s[i]);
 }
 
-char					*ft_strtrim(char const *s1, char const *set)
+char					*ft_strtrim(const char *s1, const char *set)
 {
-	char	*trim;
-	char	*begin;
-	char	*end;
-	size_t	i;
-	size_t	len;
+	char		*str;
+	size_t		len;
+	size_t		i;
+	char		*start;
+	char		*end;
 
 	if (s1 == NULL || set == NULL)
 		return (NULL);
-	begin = (char*)get_first_pos(s1, set);
-	end = (char*)get_last_pos(s1, set);
-	i = 0;
-	len = end - begin + 1;
-	if (end < begin)
+	start = (char*)getstart(s1, set);
+	end = (char*)getend(s1, set);
+	len = end - start + 1;
+	if (end < start)
 		len = 1;
-	trim = (char *)malloc(len + 1);
-	if (trim == NULL)
+	str = malloc(len + 1);
+	if (str == NULL)
 		return (NULL);
+	i = 0;
 	while (i < len)
 	{
-		trim[i] = begin[i];
+		str[i] = start[i];
 		i++;
 	}
-	trim[i] = '\0';
-	return (trim);
+	str[i] = '\0';
+	return (str);
 }

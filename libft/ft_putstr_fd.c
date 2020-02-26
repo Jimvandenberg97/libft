@@ -3,13 +3,14 @@
 /*                                                        ::::::::            */
 /*   ft_putstr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/02 13:40:30 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/11 20:48:40 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/11/01 11:58:01 by jivan-de       #+#    #+#                */
+/*   Updated: 2020/01/15 18:43:05 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)

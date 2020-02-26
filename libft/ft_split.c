@@ -3,98 +3,107 @@
 /*                                                        ::::::::            */
 /*   ft_split.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/05 19:00:02 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/12/07 21:41:49 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/10/30 17:45:38 by jivan-de       #+#    #+#                */
+/*   Updated: 2020/01/16 19:30:55 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-static int			wleng(const char *s, char c)
+static size_t		ft_wordcnt(const char *str, char c)
 {
-	int i;
+	size_t i;
+	size_t count;
 
 	i = 0;
-	while (s[i] != c)
-		i++;
-	return (i);
-}
-
-static int			wcount(const char *s, char c)
-{
-	int i;
-	int ct;
-
-	i = 0;
-	ct = 0;
-	if (!s)
+	count = 0;
+	if (!str)
 		return (0);
-	while (s[i])
+	while (str[i] != '\0')
 	{
-		while (s[i] == c && s[i] != '\0')
+		while (str[i] == c && str[i] != '\0')
 			i++;
-		while (s[i] != c && s[i] != '\0')
+		while (str[i] != c && str[i] != '\0')
 			i++;
-		ct++;
+		count++;
 	}
-	return (ct);
+	if (str[i - 1] == c)
+		count--;
+	return (count);
 }
 
-static	void		*freenew(char *new, int j)
+static size_t		ft_wordlen(const char *str, char c)
 {
-	while (j > 0)
+	size_t len;
+
+	len = 0;
+	while (*str != c)
 	{
-		j--;
-		free(&new[j]);
+		str++;
+		len++;
+	}
+	return (len);
+}
+
+static char			**ft_cleanup(char **ptr, size_t count)
+{
+	size_t	i;
+
+	if (ptr)
+	{
+		i = 0;
+		while (i < count)
+		{
+			if (ptr[i] != NULL)
+				free(ptr[i]);
+			i++;
+		}
+		free(ptr);
 	}
 	return (NULL);
 }
 
-static char			**copy(char **new, const char *s, char c, int j)
+static char			**ft_copyover(char **output, const char *s, char c)
 {
-	int i;
+	size_t		j;
+	size_t		k;
 
+	j = 0;
 	while (*s != '\0')
 	{
 		while (*s == c && *s != '\0')
 			s++;
 		if (*s == '\0')
 			continue ;
-		new[j] = malloc(sizeof(char*) * (wleng(s, c) + 1));
-		if (new[j] == NULL)
-			return (freenew(new[j], j));
-		i = 0;
+		output[j] = malloc(sizeof(char*) * ft_wordlen(s, c) + 1);
+		if (output[j] == NULL)
+			return (ft_cleanup(output, j));
+		k = 0;
 		while (*s != c && *s != '\0')
 		{
-			new[j][i] = *s;
+			output[j][k] = *s;
+			k++;
 			s++;
-			i++;
 		}
-		new[j][i] = '\0';
+		output[j][k] = '\0';
 		j++;
 	}
-	new[j] = NULL;
-	return (new);
+	output[j] = NULL;
+	return (output);
 }
 
 char				**ft_split(const char *s, char c)
 {
-	int		j;
-	char	**new;
+	char	**output;
+	char	**orig;
 
-	if (s == NULL)
+	output = malloc(sizeof(char*) * (ft_wordcnt(s, c) + 1));
+	if (s == NULL || output == NULL)
 		return (NULL);
-	new = malloc(sizeof(char *) * (wcount(s, c) + 1));
-	if (new == NULL)
-		return (NULL);
-	j = 0;
-	new = copy(new, s, c, j);
-	if (new == NULL)
-	{
-		free(new);
-		return (NULL);
-	}
-	return (new);
+	orig = output;
+	ft_copyover(output, s, c);
+	return (output);
 }

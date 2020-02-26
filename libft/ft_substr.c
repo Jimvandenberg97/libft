@@ -3,33 +3,38 @@
 /*                                                        ::::::::            */
 /*   ft_substr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/31 10:43:58 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/20 14:51:35 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/10/30 15:50:49 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/12/03 14:34:48 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char		*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*new;
-	size_t	i;
+	char		*ptr;
+	size_t		i;
+	size_t		memlen;
 
 	if (s == NULL)
 		return (NULL);
+	i = 0;
+	memlen = ft_strlen(&s[start]);
 	if (start > ft_strlen(s))
 		return (ft_strdup(""));
-	new = malloc(sizeof(char) * len + 1);
-	if (new == NULL)
+	if (memlen < len)
+		len = memlen;
+	ptr = malloc(len + 1);
+	if (ptr == NULL)
 		return (NULL);
-	i = 0;
-	while (i < len)
+	while (s[start + i] && i < len)
 	{
-		new[i] = s[i + start];
+		ptr[i] = s[start + i];
 		i++;
 	}
-	new[i] = '\0';
-	return (new);
+	ptr[i] = '\0';
+	return (ptr);
 }

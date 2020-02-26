@@ -3,29 +3,33 @@
 /*                                                        ::::::::            */
 /*   ft_strlcpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 19:53:11 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/12 11:17:01 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/10/30 12:28:55 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/11/09 12:08:04 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int	len;
+	size_t	len;
+	size_t	i;
 
+	i = 0;
 	len = 0;
+	if (dstsize == 0)
+		return (ft_strlen(src));
 	if (dst == NULL || src == NULL)
-		return (len);
-	len = ft_strlen(src);
-	if (len + 1 < dstsize)
-		ft_memcpy(dst, src, len + 1);
-	else if (dstsize != 0)
+		return (0);
+	while (src[len] != '\0')
+		len++;
+	while (src[i] != '\0' && i < dstsize - 1)
 	{
-		ft_memcpy(dst, src, dstsize - 1);
-		dst[dstsize - 1] = '\0';
+		dst[i] = src[i];
+		++i;
 	}
+	dst[i] = '\0';
 	return (len);
 }

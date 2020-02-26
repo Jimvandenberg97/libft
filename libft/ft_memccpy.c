@@ -3,30 +3,35 @@
 /*                                                        ::::::::            */
 /*   ft_memccpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/30 14:18:11 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/09 12:46:55 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/10/28 15:25:30 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/11/06 15:28:22 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void		*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	unsigned char	*pdest;
-	unsigned char	*psource;
+	size_t				i;
+	unsigned char		*a;
+	const unsigned char	*b;
 
-	pdest = (unsigned char *)dst;
-	psource = (unsigned char *)src;
-	while (n > 0)
+	i = 0;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	a = (unsigned char*)dst;
+	b = (const unsigned char*)src;
+	while (i < n)
 	{
-		*pdest = *psource;
-		if (*psource == (unsigned char)c)
-			return ((unsigned char *)pdest + 1);
-		pdest++;
-		psource++;
-		n--;
+		a[i] = b[i];
+		if (b[i] == (const unsigned char)c)
+		{
+			i++;
+			return (&dst[i]);
+		}
+		i++;
 	}
 	return (NULL);
 }

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strcmp.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <jivan-de@student.codam.n>          +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/12/07 20:49:29 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/12/07 20:49:41 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/10/29 16:34:29 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/12/07 13:51:08 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

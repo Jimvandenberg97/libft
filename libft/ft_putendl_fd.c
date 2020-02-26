@@ -3,20 +3,17 @@
 /*                                                        ::::::::            */
 /*   ft_putendl_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/02 14:03:53 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/11 20:49:03 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/11/01 12:03:44 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/11/02 12:10:48 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void		ft_putendl_fd(char *s, int fd)
 {
-	int i;
-
-	i = 0;
 	if (s == NULL)
 		return ;
 	ft_putstr_fd(s, fd);

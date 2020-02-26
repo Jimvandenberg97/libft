@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_toupper.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 17:01:09 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/05 16:46:18 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/10/29 13:17:41 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/11/02 14:32:06 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int		ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (c - 32);
+		return (c - ('a' - 'A'));
 	return (c);
 }

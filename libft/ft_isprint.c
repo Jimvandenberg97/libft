@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_isprint.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jivan-de <marvin@codam.nl>                   +#+                     */
+/*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 16:45:18 by jivan-de      #+#    #+#                 */
-/*   Updated: 2019/11/11 12:13:29 by jivan-de      ########   odam.nl         */
+/*   Created: 2019/10/28 18:43:50 by jivan-de       #+#    #+#                */
+/*   Updated: 2019/11/02 14:31:02 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int		ft_isprint(int c)
 {
-	if (c >= ' ' && c <= '~')
-		return (1);
-	return (0);
+	return (c >= 32 && c <= 126);
 }
