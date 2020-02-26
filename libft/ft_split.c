@@ -6,7 +6,7 @@
 /*   By: jivan-de <jivan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 17:45:38 by jivan-de       #+#    #+#                */
-/*   Updated: 2020/01/16 19:30:55 by jivan-de      ########   odam.nl         */
+/*   Updated: 2020/02/26 16:10:12 by jivan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static size_t		ft_wordlen(const char *str, char c)
 	size_t len;
 
 	len = 0;
-	while (*str != c)
+	while (*str != c && *str != '\0')
 	{
 		str++;
 		len++;
